@@ -1,14 +1,12 @@
+Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent {
-        docker {
-            image 'maven:3.8.7-eclipse-temurin-11'
-            args '-v $HOME/.m2:/root/.m2'
-        }
+        docker { image 'node:16.13.1-alpine' }
     }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh 'mvn -B'
+                sh 'node --version'
             }
         }
     }
